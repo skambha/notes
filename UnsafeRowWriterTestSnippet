@@ -1,0 +1,8 @@
+val decimal0 = Decimal("200000000000000000000")
+val doesntoverflow = decimal0.changePrecision(38,18)
+println("overflow=" + !doesntoverflow)
+val unsafeRowWriter0 = new UnsafeRowWriter(1)
+unsafeRowWriter0.resetRowWriter()
+unsafeRowWriter0.write(0, decimal0,38,18)
+val res0 = unsafeRowWriter0.getRow
+println(res0.getDecimal(0, 38, 18))
